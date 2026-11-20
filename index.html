@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="عرض تفاعلي عربي عن التطريز اليدوي: تعريفه، أنواعه، أدواته، تقنياته، واستخداماته في التراث والفن والمشاريع المعاصرة.">
+  <meta name="theme-color" content="#f7f2e8">
+  <title>التطريز اليدوي.. فنٌ تتحدث فيه الخيوط</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- خلفية نسيجية ناعمة -->
+  <div class="fabric-bg" aria-hidden="true"></div>
+  <div class="thread-decor thread-decor--one" aria-hidden="true">
+    <svg viewBox="0 0 300 500" preserveAspectRatio="none"><path d="M20 -10 C 120 80, 10 170, 130 250 S 40 400, 160 510" /></svg>
+  </div>
+  <div class="thread-decor thread-decor--two" aria-hidden="true">
+    <svg viewBox="0 0 300 500" preserveAspectRatio="none"><path d="M280 -10 C 180 90, 290 180, 170 260 S 260 410, 140 510" /></svg>
+  </div>
+
+  <div class="app" id="app">
+
+    <!-- شريط التقدم -->
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- الشريط العلوي -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 3v34M3 20h34M8 8l24 24M32 8L8 32"/><circle cx="20" cy="20" r="5"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong>خُيُوط</strong>
+          <small>مجلة التطريز اليدوي</small>
+        </span>
+      </div>
+      <div class="top-actions">
+        <button class="btn btn--start" id="startBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span>ابدأ العرض</span>
+        </button>
+        <button class="btn btn--icon" id="fullscreenBtn" type="button" title="ملء الشاشة" aria-label="تفعيل وضع الشاشة الكاملة" aria-pressed="false">
+          <svg class="icon-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+          <svg class="icon-shrink" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- مسرح الشرائح -->
+    <main class="stage" id="stage" aria-live="polite">
+
+      <!-- الشريحة ١ : الغلاف -->
+      <section class="slide slide--cover is-active" data-index="0" aria-label="الشريحة الأولى: الغلاف">
+        <div class="cover-grid">
+          <div class="cover-copy">
+            <p class="eyebrow reveal" style="--d:0">مساحةٌ للصبر.. ومجالٌ للخيال</p>
+            <h1 class="cover-title reveal" style="--d:1">
+              التطريز اليدوي<span class="title-dots">..</span>
+              <span class="title-line">فنٌ تتحدث فيه الخيوط</span>
+            </h1>
+            <p class="cover-sub reveal" style="--d:2">رحلة بين الغرز، والتراث، والإبداع.</p>
+            <div class="cover-rule reveal" style="--d:3"><span></span><i>✦</i><span></span></div>
+            <button class="btn btn--cta reveal" style="--d:4" type="button" data-goto="1">
+              <span>ابدأ الرحلة</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+            </button>
+          </div>
+          <div class="cover-visual reveal" style="--d:2">
+            <div class="portrait-frame">
+              <img src="assets/images/cover.jpg" alt="قطعة قماش مطرزة يدويًا مع خيوط وأدوات التطريز" loading="eager">
+              <span class="frame-corner frame-corner--tl"></span>
+              <span class="frame-corner frame-corner--br"></span>
+            </div>
+            <div class="cover-note">
+              <span class="cover-note__num">١٣</span>
+              <span class="cover-note__text">قرونًا من الحِرَف..<br>ما زالت الخيوط تحكي</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٢ : ما التطريز اليدوي؟ -->
+      <section class="slide slide--definition" data-index="1" aria-label="الشريحة الثانية: ما التطريز اليدوي">
+        <div class="definition-grid">
+          <div class="definition-copy">
+            <p class="eyebrow reveal" style="--d:0">٠١ / التعريف</p>
+            <h2 class="slide-title reveal" style="--d:1">حين يتحول الخيط إلى فن</h2>
+            <div class="quote-mark reveal" style="--d:2" aria-hidden="true">”</div>
+            <p class="lead reveal" style="--d:3">
+              التطريز اليدوي فنٌ يقوم على تشكيل الزخارف والتفاصيل باستخدام الإبرة والخيوط على الأقمشة،
+              وتتنوع أساليبه وغرزه وألوانه، ليصبح وسيلة للتعبير الفني، وتزيين الأشياء،
+              وحفظ الحكايات الثقافية عبر الأجيال.
+            </p>
+            <div class="chips reveal" style="--d:4">
+              <span class="chip">تعبير فني</span>
+              <span class="chip">تزيين الأشياء</span>
+              <span class="chip">حفظ الحكايات</span>
+            </div>
+          </div>
+          <figure class="definition-visual reveal" style="--d:2">
+            <div class="arch-frame">
+              <img src="assets/images/definition.jpg" alt="تفاصيل الغرز الخلوية في قطعة تطريز يدوي" loading="lazy">
+            </div>
+            <figcaption>تفاصيلٌ صغيرة.. تصنع حضورًا كبيرًا</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- الشريحة ٣ : أنواع التطريز -->
+      <section class="slide slide--types" data-index="2" aria-label="الشريحة الثالثة: أنواع التطريز اليدوي">
+        <div class="slide-shell">
+          <header class="section-head reveal" style="--d:0">
+            <p class="eyebrow">٠٢ / الأنواع</p>
+            <h2 class="slide-title">عالمٌ من الغرز والأساليب</h2>
+            <p class="section-intro">ثمانية مسارات للخيط، لكلٍّ منها بصمته الخاصة.</p>
+          </header>
+          <div class="types-grid">
+            <article class="type-card reveal" style="--d:1">
+              <div class="type-card__img"><img src="assets/images/type-traditional.jpg" alt="تطريز شعبي تراثي" loading="lazy"></div>
+              <div class="type-card__body"><h3>التطريز التقليدي</h3><p>زخارف شعبية ترتبط بالثقافات والملابس التراثية.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:2">
+              <div class="type-card__img"><img src="assets/images/type-cross.jpg" alt="غرز التطريز المتقاطع" loading="lazy"></div>
+              <div class="type-card__body"><h3>المتقاطع <span>Cross Stitch</span></h3><p>رسوماتٌ دقيقة بغرز متقاطعة على النسيج.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:3">
+              <div class="type-card__img"><img src="assets/images/type-stumpwork.jpg" alt="تطريز بارز مجسم" loading="lazy"></div>
+              <div class="type-card__body"><h3>البارز <span>Stumpwork</span></h3><p>تفاصيل مرتفعة ومجسّمة تخرج من سطح القماش.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:4">
+              <div class="type-card__img"><img src="assets/images/type-goldwork.jpg" alt="تطريز بخيوط معدنية ذهبية" loading="lazy"></div>
+              <div class="type-card__body"><h3>الذهبي <span>Goldwork</span></h3><p>خيوط معدنية تضيف لمسةً فاخرة ووهجًا هادئًا.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:5">
+              <div class="type-card__img"><img src="assets/images/type-satin.jpg" alt="غرز الساتان الناعمة" loading="lazy"></div>
+              <div class="type-card__body"><h3>الساتان <span>Satin Stitch</span></h3><p>خيوط متجاورة تغطي المساحات بسطحٍ ناعم.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:6">
+              <div class="type-card__img"><img src="assets/images/type-chain.jpg" alt="غرز السلاسل المتشابكة" loading="lazy"></div>
+              <div class="type-card__body"><h3>السلاسل <span>Chain Stitch</span></h3><p>خطوط وزخارف تشبه حلقات السلسلة المتتابعة.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:7">
+              <div class="type-card__img"><img src="assets/images/type-beads.jpg" alt="تطريز بالخرز والحبات" loading="lazy"></div>
+              <div class="type-card__body"><h3>التطريز بالخرز</h3><p>حبات صغيرة تُخاط فوق القماش فتضيئه باللمعان.</p></div>
+            </article>
+            <article class="type-card reveal" style="--d:8">
+              <div class="type-card__img"><img src="assets/images/type-ribbon.jpg" alt="ورود مصنوعة بشرائط الحرير" loading="lazy"></div>
+              <div class="type-card__body"><h3>شرائط الحرير</h3><p>ورودٌ وعناصر زخرفية تُشكّل من شرائط الحرير.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٤ : الأدوات -->
+      <section class="slide slide--tools" data-index="3" aria-label="الشريحة الرابعة: أدوات التطريز">
+        <div class="tools-grid">
+          <figure class="tools-visual reveal" style="--d:0">
+            <div class="tools-photo"><img src="assets/images/tools.jpg" alt="أدوات التطريز اليدوي: إبر وخيوط ومقص وطوق" loading="lazy"></div>
+            <figcaption>لوحة الأدوات.. بساطةٌ تصنع التفاصيل</figcaption>
+          </figure>
+          <div class="tools-copy">
+            <p class="eyebrow reveal" style="--d:1">٠٣ / الأدوات</p>
+            <h2 class="slide-title reveal" style="--d:2">أدواتٌ بسيطة، وعالمٌ واسع</h2>
+            <ul class="tool-list">
+              <li class="reveal" style="--d:3"><span class="num">١</span><div><strong>الإبر</strong><p>أحجام وأنواع مختلفة تناسب الأقمشة والخيوط.</p></div></li>
+              <li class="reveal" style="--d:4"><span class="num">٢</span><div><strong>الخيوط</strong><p>قطنٌ وحرير وصوفٌ وغيرها، بدرجات لا تُحصى.</p></div></li>
+              <li class="reveal" style="--d:5"><span class="num">٣</span><div><strong>القماش</strong><p>أنواع تختلف باختلاف التقنية والغرض.</p></div></li>
+              <li class="reveal" style="--d:6"><span class="num">٤</span><div><strong>الطوق</strong><p>يُثبّت القماش ويُبقيه مشدودًا أثناء العمل.</p></div></li>
+              <li class="reveal" style="--d:7"><span class="num">٥</span><div><strong>المقص</strong><p>لقصّ الخيوط بدقةٍ تحترم التفصيل.</p></div></li>
+              <li class="reveal" style="--d:8"><span class="num">٦</span><div><strong>قلم تحديد القماش</strong><p>لنقل الرسومات وتحديد مسارات الغرز.</p></div></li>
+              <li class="reveal" style="--d:9"><span class="num">٧</span><div><strong>إضافات</strong><p>خرز، وشرائط، وأدوات فكّ الغرز عند الحاجة.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٥ : أين نستخدمه -->
+      <section class="slide slide--uses" data-index="4" aria-label="الشريحة الخامسة: استخدامات التطريز">
+        <div class="slide-shell">
+          <header class="section-head section-head--center reveal" style="--d:0">
+            <p class="eyebrow">٠٤ / الاستخدامات</p>
+            <h2 class="slide-title">من القماش إلى تفاصيل الحياة</h2>
+          </header>
+          <div class="uses-grid">
+            <article class="use-card reveal" style="--d:1"><div class="use-card__img"><img src="assets/images/use-fashion.jpg" alt="ملابس مطرزة يدويًا" loading="lazy"></div><h3>الأزياء</h3><p>تطريز الملابس التقليدية والحديثة.</p></article>
+            <article class="use-card reveal" style="--d:2"><div class="use-card__img"><img src="assets/images/use-accessories.jpg" alt="إكسسوارات مطرزة" loading="lazy"></div><h3>الإكسسوارات</h3><p>الحقائب والمحافظ والأغطية والقطع الشخصية.</p></article>
+            <article class="use-card reveal" style="--d:3"><div class="use-card__img"><img src="assets/images/use-decor.jpg" alt="ديكور منزل مطرز" loading="lazy"></div><h3>ديكور المنزل</h3><p>اللوحات والمفارش والوسائد والستائر.</p></article>
+            <article class="use-card reveal" style="--d:4"><div class="use-card__img"><img src="assets/images/use-gifts.jpg" alt="هدية مطرزة بشكل قلب" loading="lazy"></div><h3>الهدايا</h3><p>أسماء وتواريخ وعبارات ورسومات خاصة.</p></article>
+            <article class="use-card reveal" style="--d:5"><div class="use-card__img"><img src="assets/images/use-art.jpg" alt="عمل فني نسيجي مطرز" loading="lazy"></div><h3>الفن التشكيلي</h3><p>لوحات وأعمال معاصرة بالخيط والإبرة.</p></article>
+            <article class="use-card reveal" style="--d:6"><div class="use-card__img"><img src="assets/images/use-restoration.jpg" alt="يدان تعملان على ترميم نسيج تراثي" loading="lazy"></div><h3>ترميم التراث</h3><p>العناية بالقطع النسيجية وإعادة إحيائها.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٦ : بين التراث والحداثة -->
+      <section class="slide slide--eras" data-index="5" aria-label="الشريحة السادسة: التطريز بين التراث والحداثة">
+        <div class="slide-shell">
+          <header class="section-head section-head--center reveal" style="--d:0">
+            <p class="eyebrow">٠٥ / التحوّل</p>
+            <h2 class="slide-title">حرفةٌ قديمة، بروحٍ متجددة</h2>
+            <p class="section-intro section-intro--wide">
+              لم يعد التطريز محصورًا في الأزياء التقليدية، بل امتد إلى التصاميم المعاصرة، والأعمال الفنية،
+              والهدايا المخصصة، والتصميم المستدام. والجمع بين الغرز القديمة والأفكار الحديثة
+              مساحةٌ لإعادة اكتشاف الحرفة وتطويرها.
+            </p>
+          </header>
+          <div class="era-grid">
+            <article class="era-card era-card--heritage reveal" style="--d:1">
+              <img src="assets/images/heritage.jpg" alt="زخارف التطريز التراثي" loading="lazy">
+              <div class="era-card__body">
+                <h3>التطريز التراثي</h3>
+                <p>الزخارف الشعبية، والأزياء التقليدية، والرموز الثقافية.</p>
+              </div>
+            </article>
+            <div class="era-bridge reveal" style="--d:2" aria-hidden="true">
+              <span class="era-bridge__line"></span><span class="era-bridge__star">✦</span><span class="era-bridge__line"></span>
+            </div>
+            <article class="era-card era-card--modern reveal" style="--d:3">
+              <img src="assets/images/modern.jpg" alt="تطريز معاصر داخل طوق خشبي" loading="lazy">
+              <div class="era-card__body">
+                <h3>التطريز المعاصر</h3>
+                <p>تصاميم حديثة، ورسومات حرة، وأعمال فنية، وتخصيص شخصي.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٧ : مشروع إبداعي -->
+      <section class="slide slide--project" data-index="6" aria-label="الشريحة السابعة: التطريز كمشروع إبداعي">
+        <div class="project-grid">
+          <figure class="project-visual reveal" style="--d:0">
+            <div class="project-photo"><img src="assets/images/project.jpg" alt="مجموعة منتجات مطرزة يدويًا" loading="lazy"></div>
+            <figcaption>من فكرة صغيرة.. إلى بصمةٍ تُرى</figcaption>
+          </figure>
+          <div class="project-copy">
+            <p class="eyebrow reveal" style="--d:1">٠٦ / المشروع</p>
+            <h2 class="slide-title reveal" style="--d:2">حين تصبح الحرفة مصدرًا للإبداع</h2>
+            <div class="project-list">
+              <div class="project-item reveal" style="--d:3"><span>✧</span><p>تصميم قطع فريدة حسب الطلب.</p></div>
+              <div class="project-item reveal" style="--d:4"><span>✧</span><p>تطريز الأسماء والمناسبات.</p></div>
+              <div class="project-item reveal" style="--d:5"><span>✧</span><p>بيع القطع الفنية والإكسسوارات المطرزة.</p></div>
+              <div class="project-item reveal" style="--d:6"><span>✧</span><p>تقديم ورش تعليمية للراغبين في التعلّم.</p></div>
+              <div class="project-item reveal" style="--d:7"><span>✧</span><p>إنشاء منتجات منزلية مطرزة.</p></div>
+              <div class="project-item reveal" style="--d:8"><span>✧</span><p>تطوير علامة تجارية خاصة بالتطريز.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- الشريحة ٨ : الخاتمة -->
+      <section class="slide slide--ending" data-index="7" aria-label="الشريحة الثامنة: الخاتمة">
+        <div class="ending-bg" aria-hidden="true"><img src="assets/images/conclusion.jpg" alt="" loading="lazy"></div>
+        <div class="ending-inner">
+          <div class="ending-emblem reveal" style="--d:0" aria-hidden="true">
+            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="30"/><path d="M40 12v56M12 40h56M20 20l40 40M60 20L20 60"/><circle cx="40" cy="40" r="7"/></svg>
+          </div>
+          <p class="eyebrow reveal" style="--d:1">٠٧ / الخاتمة</p>
+          <h2 class="ending-title reveal" style="--d:2">لكل غرزة حكاية</h2>
+          <p class="ending-text reveal" style="--d:3">
+            في كل غرزة مساحةٌ للصبر، وفي كل خيط احتمالٌ لفكرة،
+            وبين تفاصيل القماش تولد أعمالٌ تحمل شيئًا من روح صانعها.
+          </p>
+          <p class="ending-quote reveal" style="--d:4">
+            ليس مجرد خيطٍ وإبرة..<br>بل أثرٌ يُنسج باليد، ويُحفظ في الذاكرة.
+          </p>
+          <button class="btn btn--cta btn--restart reveal" style="--d:5" id="restartBtn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 6M4 5v6h6"/></svg>
+            <span>إعادة العرض من البداية</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- شريط التنقل السفلي -->
+    <footer class="bottombar">
+      <button class="nav-btn nav-btn--prev" id="prevBtn" type="button" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+        <span>السابق</span>
+      </button>
+      <div class="counter" aria-label="مؤشر الشريحة">
+        <span class="counter__label">الشريحة</span>
+        <span class="counter__current" id="currentNum">١</span>
+        <span class="counter__sep">/</span>
+        <span class="counter__total" id="totalNum">٨</span>
+      </div>
+      <button class="nav-btn nav-btn--next" id="nextBtn" type="button">
+        <span>التالي</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      </button>
+    </footer>
+
+    <!-- طبقة البداية -->
+    <div class="intro-overlay" id="introOverlay">
+      <div class="intro-card">
+        <div class="intro-ornament" aria-hidden="true">✦</div>
+        <p class="eyebrow">عرض تفاعلي</p>
+        <h2>التطريز اليدوي</h2>
+        <p class="intro-sub">فنٌ تتحدث فيه الخيوط</p>
+        <div class="intro-rule"></div>
+        <p class="intro-note">ثماني شرائح تأخذك في رحلة بين الغرز والتراث والإبداع</p>
+        <button class="btn btn--cta" id="introStartBtn" type="button">
+          <span>ابدأ العرض</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+        </button>
+        <p class="intro-hint">استخدم الأسهم في لوحة المفاتيح أو أزرار التنقل</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
